@@ -12,7 +12,6 @@ Public Class FrmAset
         Me.AsetTableAdapter.Fill(Me.SIMARCData_Set.Aset)
 
         Clear()
-
         SetTombol(True)
     End Sub
     
@@ -109,7 +108,6 @@ Public Class FrmAset
         End Try
 
         ReloadData()
-
         Clear()
         SetTombol(True)
         CloseConnection()
