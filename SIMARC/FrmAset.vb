@@ -109,6 +109,7 @@ Public Class FrmAset
         End Try
 
         ReloadData()
+
         Clear()
         SetTombol(True)
         CloseConnection()
