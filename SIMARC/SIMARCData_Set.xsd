@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SIMARCData_Set" targetNamespace="http://tempuri.org/SIMARCData_Set.xsd" xmlns:mstns="http://tempuri.org/SIMARCData_Set.xsd" xmlns="http://tempuri.org/SIMARCData_Set.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="SIMARFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SIMARFConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SIMARC.My.MySettings.GlobalReference.Default.SIMARFConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Type_AsetTableAdapter" GeneratorDataComponentClassName="Type_AsetTableAdapter" Name="Type_Aset" UserDataComponentName="Type_AsetTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SIMARFConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Type_Aset.kd_type
+	,Type_Aset.nm_type
+	,Type_Aset.kd_karyawan
+	,Karyawan.nm_karyawan
+FROM Type_Aset
+INNER JOIN Karyawan ON Type_Aset.kd_karyawan = Karyawan.kd_karyawan</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="kd_type" DataSetColumn="kd_type" />
+              <Mapping SourceColumn="nm_type" DataSetColumn="nm_type" />
+              <Mapping SourceColumn="kd_karyawan" DataSetColumn="kd_karyawan" />
+              <Mapping SourceColumn="nm_karyawan" DataSetColumn="nm_karyawan" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="SIMARFConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_ComboBox" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy_ComboBox" GeneratorSourceName="FillBy_ComboBox" GetMethodModifier="Public" GetMethodName="GetDataBy_ComboBox" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_ComboBox" UserSourceName="FillBy_ComboBox">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT A.kd_type
+	,A.nm_type
+	,B.kd_karyawan
+	,B.nm_karyawan
+FROM Type_Aset A
+JOIN Karyawan B ON A.kd_karyawan = B.kd_karyawan
+union all
+select 0,'--Pilih--',0,''
+order by kd_type asc</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KaryawanTableAdapter" GeneratorDataComponentClassName="KaryawanTableAdapter" Name="Karyawan" UserDataComponentName="KaryawanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SIMARFConnectionString (MySettings)" DbObjectName="SIMARF.dbo.Karyawan" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[Karyawan] WHERE (([kd_karyawan] = @Original_kd_karyawan) AND ([nm_karyawan] = @Original_nm_karyawan) AND ([tlp_karyawan] = @Original_tlp_karyawan) AND ([lvl_karyawan] = @Original_lvl_karyawan) AND ([wlyh_karyawan] = @Original_wlyh_karyawan) AND ([username] = @Original_username) AND ([password] = @Original_password))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_kd_karyawan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="kd_karyawan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nm_karyawan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nm_karyawan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_tlp_karyawan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="tlp_karyawan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_lvl_karyawan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="lvl_karyawan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_wlyh_karyawan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="wlyh_karyawan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[Karyawan] ([kd_karyawan], [nm_karyawan], [almt_karyawan], [tlp_karyawan], [lvl_karyawan], [wlyh_karyawan], [username], [password]) VALUES (@kd_karyawan, @nm_karyawan, @almt_karyawan, @tlp_karyawan, @lvl_karyawan, @wlyh_karyawan, @username, @password);
+SELECT kd_karyawan, nm_karyawan, almt_karyawan, tlp_karyawan, lvl_karyawan, wlyh_karyawan, username, password FROM Karyawan WHERE (kd_karyawan = @kd_karyawan)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@kd_karyawan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="kd_karyawan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nm_karyawan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nm_karyawan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@almt_karyawan" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="almt_karyawan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@tlp_karyawan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="tlp_karyawan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@lvl_karyawan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="lvl_karyawan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@wlyh_karyawan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="wlyh_karyawan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT kd_karyawan, nm_karyawan, almt_karyawan, tlp_karyawan, lvl_karyawan, wlyh_karyawan, username, password FROM dbo.Karyawan</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[Karyawan] SET [kd_karyawan] = @kd_karyawan, [nm_karyawan] = @nm_karyawan, [almt_karyawan] = @almt_karyawan, [tlp_karyawan] = @tlp_karyawan, [lvl_karyawan] = @lvl_karyawan, [wlyh_karyawan] = @wlyh_karyawan, [username] = @username, [password] = @password WHERE (([kd_karyawan] = @Original_kd_karyawan) AND ([nm_karyawan] = @Original_nm_karyawan) AND ([tlp_karyawan] = @Original_tlp_karyawan) AND ([lvl_karyawan] = @Original_lvl_karyawan) AND ([wlyh_karyawan] = @Original_wlyh_karyawan) AND ([username] = @Original_username) AND ([password] = @Original_password));
+SELECT kd_karyawan, nm_karyawan, almt_karyawan, tlp_karyawan, lvl_karyawan, wlyh_karyawan, username, password FROM Karyawan WHERE (kd_karyawan = @kd_karyawan)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@kd_karyawan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="kd_karyawan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@nm_karyawan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nm_karyawan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@almt_karyawan" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="almt_karyawan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@tlp_karyawan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="tlp_karyawan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@lvl_karyawan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="lvl_karyawan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@wlyh_karyawan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="wlyh_karyawan" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_kd_karyawan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="kd_karyawan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_nm_karyawan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nm_karyawan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_tlp_karyawan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="tlp_karyawan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_lvl_karyawan" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="lvl_karyawan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_wlyh_karyawan" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="wlyh_karyawan" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_username" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="username" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_password" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="password" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="kd_karyawan" DataSetColumn="kd_karyawan" />
+              <Mapping SourceColumn="nm_karyawan" DataSetColumn="nm_karyawan" />
+              <Mapping SourceColumn="almt_karyawan" DataSetColumn="almt_karyawan" />
+              <Mapping SourceColumn="tlp_karyawan" DataSetColumn="tlp_karyawan" />
+              <Mapping SourceColumn="lvl_karyawan" DataSetColumn="lvl_karyawan" />
+              <Mapping SourceColumn="wlyh_karyawan" DataSetColumn="wlyh_karyawan" />
+              <Mapping SourceColumn="username" DataSetColumn="username" />
+              <Mapping SourceColumn="password" DataSetColumn="password" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Model_AsetTableAdapter" GeneratorDataComponentClassName="Model_AsetTableAdapter" Name="Model_Aset" UserDataComponentName="Model_AsetTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SIMARFConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Model_Aset.kd_model, Model_Aset.nm_model, Model_Aset.kd_merk, Model_Aset.kd_karyawan, Merk_Aset.nm_merk, Karyawan.nm_karyawan, Type_Aset.kd_type, Type_Aset.nm_type
+FROM            Model_Aset INNER JOIN
+                         Merk_Aset ON Model_Aset.kd_merk = Merk_Aset.kd_merk INNER JOIN
+                         Karyawan ON Model_Aset.kd_karyawan = Karyawan.kd_karyawan AND Merk_Aset.kd_karyawan = Karyawan.kd_karyawan INNER JOIN
+                         Type_Aset ON Merk_Aset.kd_type = Type_Aset.kd_type</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="kd_model" DataSetColumn="kd_model" />
+              <Mapping SourceColumn="nm_model" DataSetColumn="nm_model" />
+              <Mapping SourceColumn="kd_merk" DataSetColumn="kd_merk" />
+              <Mapping SourceColumn="kd_karyawan" DataSetColumn="kd_karyawan" />
+              <Mapping SourceColumn="nm_merk" DataSetColumn="nm_merk" />
+              <Mapping SourceColumn="nm_karyawan" DataSetColumn="nm_karyawan" />
+              <Mapping SourceColumn="kd_type" DataSetColumn="kd_type" />
+              <Mapping SourceColumn="nm_type" DataSetColumn="nm_type" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="SIMARFConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_ComboBox" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy_ComboBox" GeneratorSourceName="FillBy_ComboBox" GetMethodModifier="Public" GetMethodName="GetDataBy_ComboBox" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_ComboBox" UserSourceName="FillBy_ComboBox">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT A.kd_model,
+	   A.nm_model,
+	   B.kd_merk,
+	   C.kd_karyawan,
+	   B.nm_merk,
+	   C.nm_karyawan,
+	   D.kd_type,
+	   D.nm_type
+FROM  Model_Aset A
+INNER JOIN Merk_Aset B ON A.kd_merk = b.kd_merk
+INNER JOIN Karyawan C ON A.kd_karyawan = C.kd_karyawan
+inner join Type_Aset D ON D.kd_type = B.kd_type
+WHERE B.kd_merk = @kd_merk
+
+UNION ALL
+
+SELECT 0
+	,'--Pilih--'
+	,0
+	,0
+	,''
+	,''
+	,0
+	,''
+ORDER BY A.kd_model ASC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="kd_merk" ColumnName="kd_merk" DataSourceName="SIMARF.dbo.Merk_Aset" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@kd_merk" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="kd_merk" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Merk_AsetTableAdapter" GeneratorDataComponentClassName="Merk_AsetTableAdapter" Name="Merk_Aset" UserDataComponentName="Merk_AsetTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SIMARFConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Merk_Aset.kd_merk, Merk_Aset.nm_merk, Merk_Aset.kd_type, Merk_Aset.kd_karyawan, Type_Aset.nm_type, Karyawan.nm_karyawan
+FROM            Merk_Aset INNER JOIN
+                         Type_Aset ON Merk_Aset.kd_type = Type_Aset.kd_type INNER JOIN
+                         Karyawan ON Merk_Aset.kd_karyawan = Karyawan.kd_karyawan AND Type_Aset.kd_karyawan = Karyawan.kd_karyawan</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="kd_merk" DataSetColumn="kd_merk" />
+              <Mapping SourceColumn="nm_merk" DataSetColumn="nm_merk" />
+              <Mapping SourceColumn="kd_type" DataSetColumn="kd_type" />
+              <Mapping SourceColumn="kd_karyawan" DataSetColumn="kd_karyawan" />
+              <Mapping SourceColumn="nm_type" DataSetColumn="nm_type" />
+              <Mapping SourceColumn="nm_karyawan" DataSetColumn="nm_karyawan" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="SIMARFConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_ComboBox" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy_ComboBox" GeneratorSourceName="FillBy_ComboBox" GetMethodModifier="Public" GetMethodName="GetDataBy_ComboBox" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_ComboBox" UserSourceName="FillBy_ComboBox">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT A.kd_merk
+	,A.nm_merk
+	,b.kd_type
+	,C.kd_karyawan
+	,B.nm_type
+	,C.nm_karyawan
+FROM Merk_Aset A
+INNER JOIN Type_Aset B ON A.kd_type = B.kd_type
+INNER JOIN Karyawan C ON A.kd_karyawan = C.kd_karyawan
+WHERE B.kd_type = @kd_type
+union all
+select 0,'--Pilih--',0,0,'',''
+order by kd_merk asc</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="kd_type" ColumnName="kd_type" DataSourceName="SIMARF.dbo.Type_Aset" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@kd_type" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="kd_type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AsetTableAdapter" GeneratorDataComponentClassName="AsetTableAdapter" Name="Aset" UserDataComponentName="AsetTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SIMARFConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Aset.kd_aset
+	,Aset.kd_model
+	,Aset.kd_type
+	,Aset.kd_merk
+	,Aset.kd_karyawan
+	,Model_Aset.nm_model
+	,Type_Aset.nm_type
+	,Merk_Aset.nm_merk
+	,Karyawan.nm_karyawan
+FROM Aset
+ JOIN Model_Aset ON Aset.kd_model = Model_Aset.kd_model
+ JOIN Type_Aset ON Aset.kd_type = Type_Aset.kd_type
+ JOIN Merk_Aset ON Aset.kd_merk = Merk_Aset.kd_merk
+ JOIN Karyawan ON Aset.kd_karyawan = Karyawan.kd_karyawan
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="kd_aset" DataSetColumn="kd_aset" />
+              <Mapping SourceColumn="kd_model" DataSetColumn="kd_model" />
+              <Mapping SourceColumn="kd_type" DataSetColumn="kd_type" />
+              <Mapping SourceColumn="kd_merk" DataSetColumn="kd_merk" />
+              <Mapping SourceColumn="kd_karyawan" DataSetColumn="kd_karyawan" />
+              <Mapping SourceColumn="nm_model" DataSetColumn="nm_model" />
+              <Mapping SourceColumn="nm_type" DataSetColumn="nm_type" />
+              <Mapping SourceColumn="nm_merk" DataSetColumn="nm_merk" />
+              <Mapping SourceColumn="nm_karyawan" DataSetColumn="nm_karyawan" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SIMARCData_Set" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SIMARCData_Set" msprop:Generator_UserDSName="SIMARCData_Set">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Type_Aset" msprop:Generator_TableClassName="Type_AsetDataTable" msprop:Generator_TableVarName="tableType_Aset" msprop:Generator_RowChangedName="Type_AsetRowChanged" msprop:Generator_TablePropName="Type_Aset" msprop:Generator_RowDeletingName="Type_AsetRowDeleting" msprop:Generator_RowChangingName="Type_AsetRowChanging" msprop:Generator_RowEvHandlerName="Type_AsetRowChangeEventHandler" msprop:Generator_RowDeletedName="Type_AsetRowDeleted" msprop:Generator_RowClassName="Type_AsetRow" msprop:Generator_UserTableName="Type_Aset" msprop:Generator_RowEvArgName="Type_AsetRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kd_type" msprop:Generator_ColumnVarNameInTable="columnkd_type" msprop:Generator_ColumnPropNameInRow="kd_type" msprop:Generator_ColumnPropNameInTable="kd_typeColumn" msprop:Generator_UserColumnName="kd_type" type="xs:int" />
+              <xs:element name="nm_type" msprop:Generator_ColumnVarNameInTable="columnnm_type" msprop:Generator_ColumnPropNameInRow="nm_type" msprop:Generator_ColumnPropNameInTable="nm_typeColumn" msprop:Generator_UserColumnName="nm_type">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kd_karyawan" msprop:Generator_ColumnVarNameInTable="columnkd_karyawan" msprop:Generator_ColumnPropNameInRow="kd_karyawan" msprop:Generator_ColumnPropNameInTable="kd_karyawanColumn" msprop:Generator_UserColumnName="kd_karyawan" type="xs:int" />
+              <xs:element name="nm_karyawan" msprop:Generator_ColumnVarNameInTable="columnnm_karyawan" msprop:Generator_ColumnPropNameInRow="nm_karyawan" msprop:Generator_ColumnPropNameInTable="nm_karyawanColumn" msprop:Generator_UserColumnName="nm_karyawan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Karyawan" msprop:Generator_TableClassName="KaryawanDataTable" msprop:Generator_TableVarName="tableKaryawan" msprop:Generator_RowChangedName="KaryawanRowChanged" msprop:Generator_TablePropName="Karyawan" msprop:Generator_RowDeletingName="KaryawanRowDeleting" msprop:Generator_RowChangingName="KaryawanRowChanging" msprop:Generator_RowEvHandlerName="KaryawanRowChangeEventHandler" msprop:Generator_RowDeletedName="KaryawanRowDeleted" msprop:Generator_RowClassName="KaryawanRow" msprop:Generator_UserTableName="Karyawan" msprop:Generator_RowEvArgName="KaryawanRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kd_karyawan" msprop:Generator_ColumnVarNameInTable="columnkd_karyawan" msprop:Generator_ColumnPropNameInRow="kd_karyawan" msprop:Generator_ColumnPropNameInTable="kd_karyawanColumn" msprop:Generator_UserColumnName="kd_karyawan" type="xs:int" />
+              <xs:element name="nm_karyawan" msprop:Generator_ColumnVarNameInTable="columnnm_karyawan" msprop:Generator_ColumnPropNameInRow="nm_karyawan" msprop:Generator_ColumnPropNameInTable="nm_karyawanColumn" msprop:Generator_UserColumnName="nm_karyawan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="almt_karyawan" msprop:Generator_ColumnVarNameInTable="columnalmt_karyawan" msprop:Generator_ColumnPropNameInRow="almt_karyawan" msprop:Generator_ColumnPropNameInTable="almt_karyawanColumn" msprop:Generator_UserColumnName="almt_karyawan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tlp_karyawan" msprop:Generator_ColumnVarNameInTable="columntlp_karyawan" msprop:Generator_ColumnPropNameInRow="tlp_karyawan" msprop:Generator_ColumnPropNameInTable="tlp_karyawanColumn" msprop:Generator_UserColumnName="tlp_karyawan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lvl_karyawan" msprop:Generator_ColumnVarNameInTable="columnlvl_karyawan" msprop:Generator_ColumnPropNameInRow="lvl_karyawan" msprop:Generator_ColumnPropNameInTable="lvl_karyawanColumn" msprop:Generator_UserColumnName="lvl_karyawan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="wlyh_karyawan" msprop:Generator_ColumnVarNameInTable="columnwlyh_karyawan" msprop:Generator_ColumnPropNameInRow="wlyh_karyawan" msprop:Generator_ColumnPropNameInTable="wlyh_karyawanColumn" msprop:Generator_UserColumnName="wlyh_karyawan" type="xs:int" />
+              <xs:element name="username" msprop:Generator_ColumnVarNameInTable="columnusername" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_UserColumnName="username">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="password" msprop:Generator_ColumnVarNameInTable="columnpassword" msprop:Generator_ColumnPropNameInRow="password" msprop:Generator_ColumnPropNameInTable="passwordColumn" msprop:Generator_UserColumnName="password">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Model_Aset" msprop:Generator_TableClassName="Model_AsetDataTable" msprop:Generator_TableVarName="tableModel_Aset" msprop:Generator_RowChangedName="Model_AsetRowChanged" msprop:Generator_TablePropName="Model_Aset" msprop:Generator_RowDeletingName="Model_AsetRowDeleting" msprop:Generator_RowChangingName="Model_AsetRowChanging" msprop:Generator_RowEvHandlerName="Model_AsetRowChangeEventHandler" msprop:Generator_RowDeletedName="Model_AsetRowDeleted" msprop:Generator_RowClassName="Model_AsetRow" msprop:Generator_UserTableName="Model_Aset" msprop:Generator_RowEvArgName="Model_AsetRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kd_model" msprop:Generator_ColumnVarNameInTable="columnkd_model" msprop:Generator_ColumnPropNameInRow="kd_model" msprop:Generator_ColumnPropNameInTable="kd_modelColumn" msprop:Generator_UserColumnName="kd_model" type="xs:int" />
+              <xs:element name="nm_model" msprop:Generator_ColumnVarNameInTable="columnnm_model" msprop:Generator_ColumnPropNameInRow="nm_model" msprop:Generator_ColumnPropNameInTable="nm_modelColumn" msprop:Generator_UserColumnName="nm_model">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kd_merk" msprop:Generator_ColumnVarNameInTable="columnkd_merk" msprop:Generator_ColumnPropNameInRow="kd_merk" msprop:Generator_ColumnPropNameInTable="kd_merkColumn" msprop:Generator_UserColumnName="kd_merk" type="xs:int" />
+              <xs:element name="kd_karyawan" msprop:Generator_ColumnVarNameInTable="columnkd_karyawan" msprop:Generator_ColumnPropNameInRow="kd_karyawan" msprop:Generator_ColumnPropNameInTable="kd_karyawanColumn" msprop:Generator_UserColumnName="kd_karyawan" type="xs:int" />
+              <xs:element name="nm_merk" msprop:Generator_ColumnVarNameInTable="columnnm_merk" msprop:Generator_ColumnPropNameInRow="nm_merk" msprop:Generator_ColumnPropNameInTable="nm_merkColumn" msprop:Generator_UserColumnName="nm_merk">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nm_karyawan" msprop:Generator_ColumnVarNameInTable="columnnm_karyawan" msprop:Generator_ColumnPropNameInRow="nm_karyawan" msprop:Generator_ColumnPropNameInTable="nm_karyawanColumn" msprop:Generator_UserColumnName="nm_karyawan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kd_type" msprop:Generator_ColumnVarNameInTable="columnkd_type" msprop:Generator_ColumnPropNameInRow="kd_type" msprop:Generator_ColumnPropNameInTable="kd_typeColumn" msprop:Generator_UserColumnName="kd_type" type="xs:int" />
+              <xs:element name="nm_type" msprop:Generator_ColumnVarNameInTable="columnnm_type" msprop:Generator_ColumnPropNameInRow="nm_type" msprop:Generator_ColumnPropNameInTable="nm_typeColumn" msprop:Generator_UserColumnName="nm_type">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Merk_Aset" msprop:Generator_TableClassName="Merk_AsetDataTable" msprop:Generator_TableVarName="tableMerk_Aset" msprop:Generator_RowChangedName="Merk_AsetRowChanged" msprop:Generator_TablePropName="Merk_Aset" msprop:Generator_RowDeletingName="Merk_AsetRowDeleting" msprop:Generator_RowChangingName="Merk_AsetRowChanging" msprop:Generator_RowEvHandlerName="Merk_AsetRowChangeEventHandler" msprop:Generator_RowDeletedName="Merk_AsetRowDeleted" msprop:Generator_RowClassName="Merk_AsetRow" msprop:Generator_UserTableName="Merk_Aset" msprop:Generator_RowEvArgName="Merk_AsetRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kd_merk" msprop:Generator_ColumnVarNameInTable="columnkd_merk" msprop:Generator_ColumnPropNameInRow="kd_merk" msprop:Generator_ColumnPropNameInTable="kd_merkColumn" msprop:Generator_UserColumnName="kd_merk" type="xs:int" />
+              <xs:element name="nm_merk" msprop:Generator_ColumnVarNameInTable="columnnm_merk" msprop:Generator_ColumnPropNameInRow="nm_merk" msprop:Generator_ColumnPropNameInTable="nm_merkColumn" msprop:Generator_UserColumnName="nm_merk">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kd_type" msprop:Generator_ColumnVarNameInTable="columnkd_type" msprop:Generator_ColumnPropNameInRow="kd_type" msprop:Generator_ColumnPropNameInTable="kd_typeColumn" msprop:Generator_UserColumnName="kd_type" type="xs:int" />
+              <xs:element name="kd_karyawan" msprop:Generator_ColumnVarNameInTable="columnkd_karyawan" msprop:Generator_ColumnPropNameInRow="kd_karyawan" msprop:Generator_ColumnPropNameInTable="kd_karyawanColumn" msprop:Generator_UserColumnName="kd_karyawan" type="xs:int" />
+              <xs:element name="nm_type" msprop:Generator_ColumnVarNameInTable="columnnm_type" msprop:Generator_ColumnPropNameInRow="nm_type" msprop:Generator_ColumnPropNameInTable="nm_typeColumn" msprop:Generator_UserColumnName="nm_type">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nm_karyawan" msprop:Generator_ColumnVarNameInTable="columnnm_karyawan" msprop:Generator_ColumnPropNameInRow="nm_karyawan" msprop:Generator_ColumnPropNameInTable="nm_karyawanColumn" msprop:Generator_UserColumnName="nm_karyawan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Aset" msprop:Generator_TableClassName="AsetDataTable" msprop:Generator_TableVarName="tableAset" msprop:Generator_TablePropName="Aset" msprop:Generator_RowDeletingName="AsetRowDeleting" msprop:Generator_RowChangingName="AsetRowChanging" msprop:Generator_RowEvHandlerName="AsetRowChangeEventHandler" msprop:Generator_RowDeletedName="AsetRowDeleted" msprop:Generator_UserTableName="Aset" msprop:Generator_RowChangedName="AsetRowChanged" msprop:Generator_RowEvArgName="AsetRowChangeEvent" msprop:Generator_RowClassName="AsetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kd_aset" msprop:Generator_ColumnVarNameInTable="columnkd_aset" msprop:Generator_ColumnPropNameInRow="kd_aset" msprop:Generator_ColumnPropNameInTable="kd_asetColumn" msprop:Generator_UserColumnName="kd_aset">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kd_model" msprop:Generator_ColumnVarNameInTable="columnkd_model" msprop:Generator_ColumnPropNameInRow="kd_model" msprop:Generator_ColumnPropNameInTable="kd_modelColumn" msprop:Generator_UserColumnName="kd_model" type="xs:int" />
+              <xs:element name="kd_type" msprop:Generator_ColumnVarNameInTable="columnkd_type" msprop:Generator_ColumnPropNameInRow="kd_type" msprop:Generator_ColumnPropNameInTable="kd_typeColumn" msprop:Generator_UserColumnName="kd_type" type="xs:int" />
+              <xs:element name="kd_merk" msprop:Generator_ColumnVarNameInTable="columnkd_merk" msprop:Generator_ColumnPropNameInRow="kd_merk" msprop:Generator_ColumnPropNameInTable="kd_merkColumn" msprop:Generator_UserColumnName="kd_merk" type="xs:int" />
+              <xs:element name="kd_karyawan" msprop:Generator_ColumnVarNameInTable="columnkd_karyawan" msprop:Generator_ColumnPropNameInRow="kd_karyawan" msprop:Generator_ColumnPropNameInTable="kd_karyawanColumn" msprop:Generator_UserColumnName="kd_karyawan" type="xs:int" />
+              <xs:element name="nm_model" msprop:Generator_ColumnVarNameInTable="columnnm_model" msprop:Generator_ColumnPropNameInRow="nm_model" msprop:Generator_ColumnPropNameInTable="nm_modelColumn" msprop:Generator_UserColumnName="nm_model">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nm_type" msprop:Generator_ColumnVarNameInTable="columnnm_type" msprop:Generator_ColumnPropNameInRow="nm_type" msprop:Generator_ColumnPropNameInTable="nm_typeColumn" msprop:Generator_UserColumnName="nm_type">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nm_merk" msprop:Generator_ColumnVarNameInTable="columnnm_merk" msprop:Generator_ColumnPropNameInRow="nm_merk" msprop:Generator_ColumnPropNameInTable="nm_merkColumn" msprop:Generator_UserColumnName="nm_merk">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nm_karyawan" msprop:Generator_ColumnVarNameInTable="columnnm_karyawan" msprop:Generator_ColumnPropNameInRow="nm_karyawan" msprop:Generator_ColumnPropNameInTable="nm_karyawanColumn" msprop:Generator_UserColumnName="nm_karyawan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Type_Aset" />
+      <xs:field xpath="mstns:kd_type" />
+    </xs:unique>
+    <xs:unique name="Karyawan_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Karyawan" />
+      <xs:field xpath="mstns:kd_karyawan" />
+    </xs:unique>
+    <xs:unique name="Model_Aset_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Model_Aset" />
+      <xs:field xpath="mstns:kd_model" />
+    </xs:unique>
+    <xs:unique name="Merk_Aset_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Merk_Aset" />
+      <xs:field xpath="mstns:kd_merk" />
+    </xs:unique>
+    <xs:unique name="Aset_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Aset" />
+      <xs:field xpath="mstns:kd_aset" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK_Type_Aset_Karyawan" msdata:parent="Karyawan" msdata:child="Type_Aset" msdata:parentkey="kd_karyawan" msdata:childkey="kd_karyawan" msprop:Generator_UserChildTable="Type_Aset" msprop:Generator_ChildPropName="GetType_AsetRows" msprop:Generator_UserRelationName="FK_Type_Aset_Karyawan" msprop:Generator_RelationVarName="relationFK_Type_Aset_Karyawan" msprop:Generator_UserParentTable="Karyawan" msprop:Generator_ParentPropName="KaryawanRow" />
+      <msdata:Relationship name="FK_Model_Aset_Karyawan" msdata:parent="Karyawan" msdata:child="Model_Aset" msdata:parentkey="kd_karyawan" msdata:childkey="kd_karyawan" msprop:Generator_UserChildTable="Model_Aset" msprop:Generator_ChildPropName="GetModel_AsetRows" msprop:Generator_UserRelationName="FK_Model_Aset_Karyawan" msprop:Generator_RelationVarName="relationFK_Model_Aset_Karyawan" msprop:Generator_UserParentTable="Karyawan" msprop:Generator_ParentPropName="KaryawanRow" />
+      <msdata:Relationship name="FK_Model_Aset_Merk_Aset" msdata:parent="Merk_Aset" msdata:child="Model_Aset" msdata:parentkey="kd_merk" msdata:childkey="kd_merk" msprop:Generator_UserChildTable="Model_Aset" msprop:Generator_ChildPropName="GetModel_AsetRows" msprop:Generator_UserRelationName="FK_Model_Aset_Merk_Aset" msprop:Generator_ParentPropName="Merk_AsetRow" msprop:Generator_RelationVarName="relationFK_Model_Aset_Merk_Aset" msprop:Generator_UserParentTable="Merk_Aset" />
+      <msdata:Relationship name="FK_Merk_Aset_Karyawan" msdata:parent="Karyawan" msdata:child="Merk_Aset" msdata:parentkey="kd_karyawan" msdata:childkey="kd_karyawan" msprop:Generator_UserChildTable="Merk_Aset" msprop:Generator_ChildPropName="GetMerk_AsetRows" msprop:Generator_UserRelationName="FK_Merk_Aset_Karyawan" msprop:Generator_RelationVarName="relationFK_Merk_Aset_Karyawan" msprop:Generator_UserParentTable="Karyawan" msprop:Generator_ParentPropName="KaryawanRow" />
+      <msdata:Relationship name="Type_Aset_Merk_Aset" msdata:parent="Type_Aset" msdata:child="Merk_Aset" msdata:parentkey="kd_type" msdata:childkey="kd_type" msprop:Generator_UserChildTable="Merk_Aset" msprop:Generator_ChildPropName="GetMerk_AsetRows" msprop:Generator_UserRelationName="Type_Aset_Merk_Aset" msprop:Generator_RelationVarName="relationType_Aset_Merk_Aset" msprop:Generator_UserParentTable="Type_Aset" msprop:Generator_ParentPropName="Type_AsetRow" />
+      <msdata:Relationship name="FK_Model_Aset_Karyawan1" msdata:parent="Merk_Aset" msdata:child="Model_Aset" msdata:parentkey="kd_karyawan" msdata:childkey="kd_karyawan" msprop:Generator_UserChildTable="Model_Aset" msprop:Generator_ChildPropName="GetModel_AsetRowsByFK_Model_Aset_Karyawan1" msprop:Generator_UserRelationName="FK_Model_Aset_Karyawan1" msprop:Generator_ParentPropName="Merk_AsetRowByFK_Model_Aset_Karyawan1" msprop:Generator_RelationVarName="relationFK_Model_Aset_Karyawan1" msprop:Generator_UserParentTable="Merk_Aset" />
+      <msdata:Relationship name="FK_Aset_Karyawan" msdata:parent="Karyawan" msdata:child="Aset" msdata:parentkey="kd_karyawan" msdata:childkey="kd_karyawan" msprop:Generator_UserChildTable="Aset" msprop:Generator_ChildPropName="GetAsetRows" msprop:Generator_UserRelationName="FK_Aset_Karyawan" msprop:Generator_ParentPropName="KaryawanRow" msprop:Generator_RelationVarName="relationFK_Aset_Karyawan" msprop:Generator_UserParentTable="Karyawan" />
+      <msdata:Relationship name="Model_Aset_Aset" msdata:parent="Model_Aset" msdata:child="Aset" msdata:parentkey="kd_model" msdata:childkey="kd_model" msprop:Generator_UserChildTable="Aset" msprop:Generator_ChildPropName="GetAsetRows" msprop:Generator_UserRelationName="Model_Aset_Aset" msprop:Generator_ParentPropName="Model_AsetRow" msprop:Generator_RelationVarName="relationModel_Aset_Aset" msprop:Generator_UserParentTable="Model_Aset" />
+      <msdata:Relationship name="Type_Aset_Aset" msdata:parent="Type_Aset" msdata:child="Aset" msdata:parentkey="kd_type" msdata:childkey="kd_type" msprop:Generator_UserChildTable="Aset" msprop:Generator_ChildPropName="GetAsetRows" msprop:Generator_UserRelationName="Type_Aset_Aset" msprop:Generator_ParentPropName="Type_AsetRow" msprop:Generator_RelationVarName="relationType_Aset_Aset" msprop:Generator_UserParentTable="Type_Aset" />
+      <msdata:Relationship name="Merk_Aset_Aset" msdata:parent="Merk_Aset" msdata:child="Aset" msdata:parentkey="kd_merk" msdata:childkey="kd_merk" msprop:Generator_UserChildTable="Aset" msprop:Generator_ChildPropName="GetAsetRows" msprop:Generator_UserRelationName="Merk_Aset_Aset" msprop:Generator_ParentPropName="Merk_AsetRow" msprop:Generator_RelationVarName="relationMerk_Aset_Aset" msprop:Generator_UserParentTable="Merk_Aset" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

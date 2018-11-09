@@ -1,0 +1,705 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45DC926C-3617-4937-9B03-D37A668E3349}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>SIMARC.My.MyApplication</StartupObject>
+    <RootNamespace>SIMARC</RootNamespace>
+    <AssemblyName>SIMARC</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>en</TargetCulture>
+    <ProductName>SIMARC</ProductName>
+    <PublisherName>Unilever</PublisherName>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.8.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>SIMARC.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>SIMARC.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\SimarcLogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>2C650DE3F321CBD4D8AB957FDB6414FAB56E33D1</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SIMARC_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v17.1.Win, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Map.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.TreeMap.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.1.Wizard, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v17.1.Presets, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v17.1.Win, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraMap.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeMap.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Conection.vb" />
+    <Compile Include="CrystalReport\CrAset.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrAset.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\CrKeuangan.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrKeuangan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\CrKeuangan2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrKeuangan2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\CrMaintenance.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrMaintenance.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\CrMT2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrMT2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\CrRepair.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrRepair.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\CrRepair2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrRepair2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\CrSparePart.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrSparePart.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FrmAbout.Designer.vb">
+      <DependentUpon>FrmAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAset.Designer.vb">
+      <DependentUpon>FrmAset.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHakAkses.designer.vb">
+      <DependentUpon>FrmHakAkses.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHakAkses.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImAset.Designer.vb">
+      <DependentUpon>FrmImAset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImAset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImMerk.Designer.vb">
+      <DependentUpon>FrmImMerk.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImMerk.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImModel.Designer.vb">
+      <DependentUpon>FrmImModel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImModel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImOutlet.Designer.vb">
+      <DependentUpon>FrmImOutlet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImOutlet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImType.Designer.vb">
+      <DependentUpon>FrmImType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLapAset.Designer.vb">
+      <DependentUpon>FrmLapAset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLapAset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLapChecklist.Designer.vb">
+      <DependentUpon>FrmLapChecklist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLapChecklist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLapKeuangan.Designer.vb">
+      <DependentUpon>FrmLapKeuangan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLapKeuangan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLapKeuanganLengkap.Designer.vb">
+      <DependentUpon>FrmLapKeuanganLengkap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLapKeuanganLengkap.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLapMT.Designer.vb">
+      <DependentUpon>FrmLapMT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLapMT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLapRepair.Designer.vb">
+      <DependentUpon>FrmLapRepair.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLapRepair.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLapRepairLengkap.Designer.vb">
+      <DependentUpon>FrmLapRepairLengkap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLapRepairLengkap.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLapSparepart.Designer.vb">
+      <DependentUpon>FrmLapSparepart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLapSparepart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.vb">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLokasi.designer.vb">
+      <DependentUpon>FrmLokasi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLokasi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMerk.designer.vb">
+      <DependentUpon>FrmMerk.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMerk.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModel.designer.vb">
+      <DependentUpon>FrmModel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMT.designer.vb">
+      <DependentUpon>FrmMT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPetugas.designer.vb">
+      <DependentUpon>FrmPetugas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPetugas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPopUpMT.Designer.vb">
+      <DependentUpon>FrmPopUpMT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPopUpMT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPopUpRepair.Designer.vb">
+      <DependentUpon>FrmPopUpRepair.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPopUpRepair.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPopUpSparePart.designer.vb">
+      <DependentUpon>FrmPopUpSparePart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPopUpSparePart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRepair.designer.vb">
+      <DependentUpon>FrmRepair.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRepair.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSparePart.designer.vb">
+      <DependentUpon>FrmSparePart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSparePart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmType.designer.vb">
+      <DependentUpon>FrmType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUbahPass.Designer.vb">
+      <DependentUpon>FrmUbahPass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUbahPass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu_Utama.Designer.vb">
+      <DependentUpon>Menu_Utama.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Menu_Utama.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modul.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SIMARCData_Set.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIMARCData_Set.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SIMARCData_Set.vb">
+      <DependentUpon>SIMARCData_Set.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CrystalReport\CrAset.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrAset.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\CrKeuangan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrKeuangan.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\CrKeuangan2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrKeuangan2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\CrMaintenance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrMaintenance.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\CrMT2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrMT2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\CrRepair.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrRepair.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\CrRepair2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrRepair2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\CrSparePart.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrSparePart.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbout.resx">
+      <DependentUpon>FrmAbout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAset.resx">
+      <DependentUpon>FrmAset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHakAkses.resx">
+      <DependentUpon>FrmHakAkses.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImAset.resx">
+      <DependentUpon>FrmImAset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImMerk.resx">
+      <DependentUpon>FrmImMerk.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImModel.resx">
+      <DependentUpon>FrmImModel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImOutlet.resx">
+      <DependentUpon>FrmImOutlet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImType.resx">
+      <DependentUpon>FrmImType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLapAset.resx">
+      <DependentUpon>FrmLapAset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLapChecklist.resx">
+      <DependentUpon>FrmLapChecklist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLapKeuangan.resx">
+      <DependentUpon>FrmLapKeuangan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLapKeuanganLengkap.resx">
+      <DependentUpon>FrmLapKeuanganLengkap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLapMT.resx">
+      <DependentUpon>FrmLapMT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLapRepair.resx">
+      <DependentUpon>FrmLapRepair.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLapRepairLengkap.resx">
+      <DependentUpon>FrmLapRepairLengkap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLapSparepart.resx">
+      <DependentUpon>FrmLapSparepart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLokasi.resx">
+      <DependentUpon>FrmLokasi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMerk.resx">
+      <DependentUpon>FrmMerk.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModel.resx">
+      <DependentUpon>FrmModel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMT.resx">
+      <DependentUpon>FrmMT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPetugas.resx">
+      <DependentUpon>FrmPetugas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPopUpMT.resx">
+      <DependentUpon>FrmPopUpMT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPopUpRepair.resx">
+      <DependentUpon>FrmPopUpRepair.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPopUpSparePart.resx">
+      <DependentUpon>FrmPopUpSparePart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRepair.resx">
+      <DependentUpon>FrmRepair.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSparePart.resx">
+      <DependentUpon>FrmSparePart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmType.resx">
+      <DependentUpon>FrmType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUbahPass.resx">
+      <DependentUpon>FrmUbahPass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu_Utama.resx">
+      <DependentUpon>Menu_Utama.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="SIMARCData_Set.xsc">
+      <DependentUpon>SIMARCData_Set.xsd</DependentUpon>
+    </None>
+    <None Include="SIMARCData_Set.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SIMARCData_Set.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="SIMARCData_Set.xss">
+      <DependentUpon>SIMARCData_Set.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Freezer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu Utama.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Petugas.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Store1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sparepart.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MasterData1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\typeAsetType.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TypeMerk.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TypeModel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Check_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checklist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Door1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Walls Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Min_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LaporanAset.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LaporanSParepart.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LaporanMaintenance.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LaporanCeklist1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LaporanRepair.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LaporanRepairLengkap.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LaporanKeuangan1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Report checklist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Key1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SimarcLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lup.png" />
+    <Content Include="Resources\SimarcLogo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
