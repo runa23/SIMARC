@@ -41,7 +41,7 @@ Partial Class FrmLogin
         Me.CmbWilayah.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.CmbWilayah.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.CmbWilayah.FormattingEnabled = True
-        Me.CmbWilayah.Items.AddRange(New Object() {"1 - CV. Savitri Kebumen" & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9), "2 - CV. Savitri Banjarnegara" & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9), "3 - CV. Savitri Purbalingga" & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9), "4 - CV. Savitri Cilacap" & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9), "5 - CV. Savitri Purwokerto"})
+        Me.CmbWilayah.Items.AddRange(New Object() {"1 - PT. Andrawina Darma Manunggal Mulya Jogjakarta", "2 - PT. Andrawina Darma Manunggal Mulya Magelang", "3 - PT. Andrawina Darma Manunggal Mulya Bantul", "4 - PT. Andrawina Darma Manunggal Mulya Klaten", "5 - PT. Andrawina Darma Manunggal Mulya Sleman"})
         Me.CmbWilayah.Location = New System.Drawing.Point(21, 90)
         Me.CmbWilayah.Name = "CmbWilayah"
         Me.CmbWilayah.Size = New System.Drawing.Size(279, 21)
