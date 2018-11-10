@@ -5,30 +5,8 @@ Public Class FrmPetugas
     Dim conses() As String
 
     Private Sub FrmPetugas_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Tampil()
-        SetTombol1()
-    End Sub
-    Sub Tampil()
-        OpenConnection()
-        sql = "select * from Karyawan where kd_karyawan not in(0)"
-        da = New SqlDataAdapter(sql, con)
-        ds = New DataSet
-        da.Fill(ds, 0)
-        DgPetugas.DataSource = ds.Tables(0)
-        SetHeader()
-        CloseConnection()
-    End Sub
-    Sub SetHeader()
-        With DgPetugas
-            .Columns(0).HeaderText = "Kode"
-            .Columns(1).HeaderText = "Nama"
-            .Columns(2).HeaderText = "Alamat"
-            .Columns(3).HeaderText = "Telp"
-            .Columns(4).HeaderText = "Level"
-            .Columns(5).HeaderText = "Wilayah"
-            .Columns(6).HeaderText = "Username"
-            .Columns(7).HeaderText = "Password"
-        End With
+        Me.KaryawanTableAdapter.Fill(Me.SIMARCData_Set.Karyawan)
+        SetTombol(True)
     End Sub
     Sub Clear()
         TxtNama.Clear()
@@ -36,26 +14,29 @@ Public Class FrmPetugas
         TxtTelp.Clear()
         TxtUsername.Clear()
         TxtPassword.Clear()
-        CmbStats.Text = ""
-        CmbWilayah.Text = ""
+        'CmbStats.Text = ""
+        'CmbWilayah.Text = ""
+        CmbStats.SelectedIndex = -1
+        CmbWilayah.SelectedIndex = -1
     End Sub
-    Sub SetTombol1()
-        BtnSimpan.Enabled = True
-        BtnEdit.Enabled = False
-        BtnHapus.Enabled = False
-        BtnBatal.Enabled = False
-        BtnKeluar.Enabled = True
+   Sub SetTombol(ByVal st As Boolean)
+        BtnSimpan.Enabled = st
+        BtnEdit.Enabled = Not st
+        BtnHapus.Enabled = Not st
+        BtnBatal.Enabled = Not st
+        BtnKeluar.Enabled = st
     End Sub
-    Sub SetTombol2()
-        BtnSimpan.Enabled = False
-        BtnEdit.Enabled = True
-        BtnHapus.Enabled = True
-        BtnBatal.Enabled = True
-        BtnKeluar.Enabled = False
+    Sub ReloadData()
+        KaryawanTableAdapter.Fill(SIMARCData_Set.Karyawan)
     End Sub
     Sub Insert()
-        If TxtNama.Text = "" Or TxtAlamat.Text = "" Or TxtTelp.Text = "" Or TxtUsername.Text = "" Or TxtPassword.Text = "" Or
-            CmbStats.Text = "" Or CmbWilayah.Text = "" Then
+        If TxtNama.Text = "" Or
+            TxtAlamat.Text = "" Or
+            TxtTelp.Text = "" Or
+            TxtUsername.Text = "" Or
+            TxtPassword.Text = "" Or
+            CmbStats.Text = "" Or
+            CmbWilayah.Text = "" Then
             MsgBox("Silahkan lengkapi data terlebih dahulu")
             Exit Sub
         Else
@@ -67,18 +48,23 @@ Public Class FrmPetugas
                         & CmbStats.Text & "'," & conses(0) & ",'" & TxtUsername.Text & "','" & TxtPassword.Text & "'"
                 cmd = New SqlCommand(sql, con)
                 cmd.ExecuteNonQuery()
-                MessageBox.Show("Data Berhasil di Simpan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Data Berhasil di Simpan", "Informasi", MessageBoxButtons.OK)
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
-            Tampil()
+            ReloadData()
             Clear()
             CloseConnection()
         End If
     End Sub
     Sub Edit()
-        If TxtNama.Text = "" Or TxtAlamat.Text = "" Or TxtTelp.Text = "" Or TxtUsername.Text = "" Or TxtPassword.Text = "" Or
-            CmbStats.Text = "" Or CmbWilayah.Text = "" Then
+        If TxtNama.Text = "" Or
+            TxtAlamat.Text = "" Or
+            TxtTelp.Text = "" Or
+            TxtUsername.Text = "" Or
+            TxtPassword.Text = "" Or
+            CmbStats.Text = "" Or
+            CmbWilayah.Text = "" Then
             MsgBox("Silahkan lengkapi data terlebih dahulu")
             Exit Sub
         Else
@@ -89,13 +75,13 @@ Public Class FrmPetugas
                         & conses(0) & ",'" & CmbStats.Text & "','" & TxtUsername.Text & "','" & TxtPassword.Text & "'"
                 cmd = New SqlCommand(sql, con)
                 cmd.ExecuteNonQuery()
-                MessageBox.Show("Data Berhasil di Update", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Data Berhasil di Update", "Informasi", MessageBoxButtons.OK)
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
-            Tampil()
+            ReloadData()
             Clear()
-            SetTombol1()
+            SetTombol(True)
             CloseConnection()
         End If
     End Sub
@@ -109,31 +95,12 @@ Public Class FrmPetugas
         Catch ex As Exception
             MessageBox.Show("Data sedang digunakan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
-        Tampil()
+        ReloadData()
         Clear()
-        SetTombol1()
+        SetTombol(True)
         CloseConnection()
     End Sub
-    Private Sub DgPetugas_DoubleClick(sender As Object, e As EventArgs) Handles DgPetugas.DoubleClick
-        Dim wil As Integer
-
-        With DgPetugas
-            kode = .Item(0, .CurrentRow.Index).Value
-            TxtNama.Text = .Item(1, .CurrentRow.Index).Value
-            TxtAlamat.Text = .Item(2, .CurrentRow.Index).Value
-            TxtTelp.Text = .Item(3, .CurrentRow.Index).Value
-
-            CmbStats.Text = .Item(4, .CurrentRow.Index).Value
-
-            wil = .Item(5, .CurrentRow.Index).Value
-            CmbWilayah.SelectedIndex = wil - 1
-
-            TxtUsername.Text = .Item(6, .CurrentRow.Index).Value
-            TxtPassword.Text = .Item(7, .CurrentRow.Index).Value
-        End With
-        SetTombol2()
-    End Sub
-
+    
     Private Sub BtnSimpan_Click(sender As Object, e As EventArgs) Handles BtnSimpan.Click
         Insert()
     End Sub
@@ -148,10 +115,24 @@ Public Class FrmPetugas
 
     Private Sub BtnBatal_Click(sender As Object, e As EventArgs) Handles BtnBatal.Click
         Clear()
-        SetTombol1()
+        SetTombol(True)
     End Sub
 
     Private Sub BtnKeluar_Click(sender As Object, e As EventArgs) Handles BtnKeluar.Click
         Dispose()
+    End Sub
+
+    Private Sub DgPetugas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgPetugas.CellContentClick
+        With DgPetugas.Rows(e.RowIndex)
+            kode = .Cells(0).Value
+            TxtNama.Text = .Cells(1).Value
+            TxtAlamat.Text = .Cells(2).Value
+            TxtTelp.Text = .Cells(3).Value
+            CmbStats.Text = .Cells(4).Value
+            CmbWilayah.SelectedIndex = .Cells(5).Value - 1
+            TxtUsername.Text = .Cells(6).Value
+            TxtPassword.Text = .Cells(7).Value
+        End With
+        SetTombol(False)
     End Sub
 End Class
