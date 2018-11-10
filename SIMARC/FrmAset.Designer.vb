@@ -94,7 +94,7 @@ Partial Class FrmAset
         'LblUkuran
         '
         Me.LblUkuran.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblUkuran.Location = New System.Drawing.Point(129, 144)
+        Me.LblUkuran.Location = New System.Drawing.Point(113, 144)
         Me.LblUkuran.Name = "LblUkuran"
         Me.LblUkuran.Size = New System.Drawing.Size(57, 25)
         Me.LblUkuran.TabIndex = 99
@@ -104,7 +104,7 @@ Partial Class FrmAset
         'Label5
         '
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(48, 143)
+        Me.Label5.Location = New System.Drawing.Point(22, 143)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(75, 25)
         Me.Label5.TabIndex = 97
@@ -114,7 +114,7 @@ Partial Class FrmAset
         'Label4
         '
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(48, 109)
+        Me.Label4.Location = New System.Drawing.Point(22, 109)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(75, 25)
         Me.Label4.TabIndex = 96
@@ -124,7 +124,7 @@ Partial Class FrmAset
         'Label1
         '
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(48, 75)
+        Me.Label1.Location = New System.Drawing.Point(22, 75)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(75, 25)
         Me.Label1.TabIndex = 94
@@ -134,7 +134,7 @@ Partial Class FrmAset
         'Label3
         '
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(48, 40)
+        Me.Label3.Location = New System.Drawing.Point(22, 40)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(75, 25)
         Me.Label3.TabIndex = 92
@@ -143,17 +143,17 @@ Partial Class FrmAset
         '
         'TxtBarcode
         '
-        Me.TxtBarcode.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtBarcode.Location = New System.Drawing.Point(129, 9)
+        Me.TxtBarcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtBarcode.Location = New System.Drawing.Point(113, 9)
         Me.TxtBarcode.Multiline = True
         Me.TxtBarcode.Name = "TxtBarcode"
-        Me.TxtBarcode.Size = New System.Drawing.Size(222, 24)
+        Me.TxtBarcode.Size = New System.Drawing.Size(288, 24)
         Me.TxtBarcode.TabIndex = 89
         '
         'Label2
         '
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(48, 8)
+        Me.Label2.Location = New System.Drawing.Point(22, 8)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(75, 25)
         Me.Label2.TabIndex = 90
@@ -333,9 +333,9 @@ Partial Class FrmAset
         Me.CmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbType.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbType.FormattingEnabled = True
-        Me.CmbType.Location = New System.Drawing.Point(129, 40)
+        Me.CmbType.Location = New System.Drawing.Point(113, 40)
         Me.CmbType.Name = "CmbType"
-        Me.CmbType.Size = New System.Drawing.Size(222, 26)
+        Me.CmbType.Size = New System.Drawing.Size(288, 26)
         Me.CmbType.TabIndex = 106
         Me.CmbType.ValueMember = "kd_type"
         '
@@ -356,9 +356,9 @@ Partial Class FrmAset
         Me.CmbMerk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbMerk.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbMerk.FormattingEnabled = True
-        Me.CmbMerk.Location = New System.Drawing.Point(129, 75)
+        Me.CmbMerk.Location = New System.Drawing.Point(113, 75)
         Me.CmbMerk.Name = "CmbMerk"
-        Me.CmbMerk.Size = New System.Drawing.Size(222, 26)
+        Me.CmbMerk.Size = New System.Drawing.Size(288, 26)
         Me.CmbMerk.TabIndex = 107
         Me.CmbMerk.ValueMember = "kd_merk"
         '
@@ -379,9 +379,9 @@ Partial Class FrmAset
         Me.CmbModel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbModel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbModel.FormattingEnabled = True
-        Me.CmbModel.Location = New System.Drawing.Point(129, 109)
+        Me.CmbModel.Location = New System.Drawing.Point(113, 109)
         Me.CmbModel.Name = "CmbModel"
-        Me.CmbModel.Size = New System.Drawing.Size(222, 26)
+        Me.CmbModel.Size = New System.Drawing.Size(288, 26)
         Me.CmbModel.TabIndex = 108
         Me.CmbModel.ValueMember = "kd_model"
         '

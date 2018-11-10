@@ -35,6 +35,8 @@ Partial Public Class SIMARCData_Set
 
     Private tableAset As AsetDataTable
 
+    Private tableLokasi As LokasiDataTable
+
     Private relationFK_Type_Aset_Karyawan As Global.System.Data.DataRelation
 
     Private relationFK_Model_Aset_Karyawan As Global.System.Data.DataRelation
@@ -54,6 +56,8 @@ Partial Public Class SIMARCData_Set
     Private relationType_Aset_Aset As Global.System.Data.DataRelation
 
     Private relationMerk_Aset_Aset As Global.System.Data.DataRelation
+
+    Private relationFK_Lokasi_Karyawan As Global.System.Data.DataRelation
 
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
 
@@ -98,6 +102,9 @@ Partial Public Class SIMARCData_Set
             End If
             If (Not (ds.Tables("Aset")) Is Nothing) Then
                 MyBase.Tables.Add(New AsetDataTable(ds.Tables("Aset")))
+            End If
+            If (Not (ds.Tables("Lokasi")) Is Nothing) Then
+                MyBase.Tables.Add(New LokasiDataTable(ds.Tables("Lokasi")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -163,6 +170,16 @@ Partial Public Class SIMARCData_Set
     Public ReadOnly Property Aset() As AsetDataTable
         Get
             Return Me.tableAset
+        End Get
+    End Property
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+     Global.System.ComponentModel.Browsable(False), _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)> _
+    Public ReadOnly Property Lokasi() As LokasiDataTable
+        Get
+            Return Me.tableLokasi
         End Get
     End Property
 
@@ -248,6 +265,9 @@ Partial Public Class SIMARCData_Set
             If (Not (ds.Tables("Aset")) Is Nothing) Then
                 MyBase.Tables.Add(New AsetDataTable(ds.Tables("Aset")))
             End If
+            If (Not (ds.Tables("Lokasi")) Is Nothing) Then
+                MyBase.Tables.Add(New LokasiDataTable(ds.Tables("Lokasi")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -310,6 +330,12 @@ Partial Public Class SIMARCData_Set
                 Me.tableAset.InitVars()
             End If
         End If
+        Me.tableLokasi = CType(MyBase.Tables("Lokasi"), LokasiDataTable)
+        If (initTable = True) Then
+            If (Not (Me.tableLokasi) Is Nothing) Then
+                Me.tableLokasi.InitVars()
+            End If
+        End If
         Me.relationFK_Type_Aset_Karyawan = Me.Relations("FK_Type_Aset_Karyawan")
         Me.relationFK_Model_Aset_Karyawan = Me.Relations("FK_Model_Aset_Karyawan")
         Me.relationFK_Model_Aset_Merk_Aset = Me.Relations("FK_Model_Aset_Merk_Aset")
@@ -320,6 +346,7 @@ Partial Public Class SIMARCData_Set
         Me.relationModel_Aset_Aset = Me.Relations("Model_Aset_Aset")
         Me.relationType_Aset_Aset = Me.Relations("Type_Aset_Aset")
         Me.relationMerk_Aset_Aset = Me.Relations("Merk_Aset_Aset")
+        Me.relationFK_Lokasi_Karyawan = Me.Relations("FK_Lokasi_Karyawan")
     End Sub
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -340,6 +367,8 @@ Partial Public Class SIMARCData_Set
         MyBase.Tables.Add(Me.tableMerk_Aset)
         Me.tableAset = New AsetDataTable()
         MyBase.Tables.Add(Me.tableAset)
+        Me.tableLokasi = New LokasiDataTable()
+        MyBase.Tables.Add(Me.tableLokasi)
         Me.relationFK_Type_Aset_Karyawan = New Global.System.Data.DataRelation("FK_Type_Aset_Karyawan", New Global.System.Data.DataColumn() {Me.tableKaryawan.kd_karyawanColumn}, New Global.System.Data.DataColumn() {Me.tableType_Aset.kd_karyawanColumn}, False)
         Me.Relations.Add(Me.relationFK_Type_Aset_Karyawan)
         Me.relationFK_Model_Aset_Karyawan = New Global.System.Data.DataRelation("FK_Model_Aset_Karyawan", New Global.System.Data.DataColumn() {Me.tableKaryawan.kd_karyawanColumn}, New Global.System.Data.DataColumn() {Me.tableModel_Aset.kd_karyawanColumn}, False)
@@ -360,6 +389,8 @@ Partial Public Class SIMARCData_Set
         Me.Relations.Add(Me.relationType_Aset_Aset)
         Me.relationMerk_Aset_Aset = New Global.System.Data.DataRelation("Merk_Aset_Aset", New Global.System.Data.DataColumn() {Me.tableMerk_Aset.kd_merkColumn}, New Global.System.Data.DataColumn() {Me.tableAset.kd_merkColumn}, False)
         Me.Relations.Add(Me.relationMerk_Aset_Aset)
+        Me.relationFK_Lokasi_Karyawan = New Global.System.Data.DataRelation("FK_Lokasi_Karyawan", New Global.System.Data.DataColumn() {Me.tableKaryawan.kd_karyawanColumn}, New Global.System.Data.DataColumn() {Me.tableLokasi.kd_karyawanColumn}, False)
+        Me.Relations.Add(Me.relationFK_Lokasi_Karyawan)
     End Sub
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -389,6 +420,12 @@ Partial Public Class SIMARCData_Set
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Private Function ShouldSerializeAset() As Boolean
+        Return False
+    End Function
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Private Function ShouldSerializeLokasi() As Boolean
         Return False
     End Function
 
@@ -464,6 +501,9 @@ Partial Public Class SIMARCData_Set
 
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Public Delegate Sub AsetRowChangeEventHandler(ByVal sender As Object, ByVal e As AsetRowChangeEvent)
+
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Public Delegate Sub LokasiRowChangeEventHandler(ByVal sender As Object, ByVal e As LokasiRowChangeEvent)
 
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -2238,6 +2278,345 @@ Partial Public Class SIMARCData_Set
     End Class
 
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(), _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")> _
+    Partial Public Class LokasiDataTable
+        Inherits Global.System.Data.TypedTableBase(Of LokasiRow)
+
+        Private columnkd_lokasi As Global.System.Data.DataColumn
+
+        Private columnnm_lokasi As Global.System.Data.DataColumn
+
+        Private columnalmt_lokasi As Global.System.Data.DataColumn
+
+        Private columntlp_lokasi As Global.System.Data.DataColumn
+
+        Private columnkd_karyawan As Global.System.Data.DataColumn
+
+        Private columnnm_karyawan As Global.System.Data.DataColumn
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New()
+            MyBase.New()
+            Me.TableName = "Lokasi"
+            Me.BeginInit()
+            Me.InitClass()
+            Me.EndInit()
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New()
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars()
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property kd_lokasiColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnkd_lokasi
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property nm_lokasiColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnm_lokasi
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property almt_lokasiColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnalmt_lokasi
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property tlp_lokasiColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntlp_lokasi
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property kd_karyawanColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnkd_karyawan
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property nm_karyawanColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnm_karyawan
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Browsable(False)> _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Default Public ReadOnly Property Item(ByVal index As Integer) As LokasiRow
+            Get
+                Return CType(Me.Rows(index), LokasiRow)
+            End Get
+        End Property
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event LokasiRowChanging As LokasiRowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event LokasiRowChanged As LokasiRowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event LokasiRowDeleting As LokasiRowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event LokasiRowDeleted As LokasiRowChangeEventHandler
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overloads Sub AddLokasiRow(ByVal row As LokasiRow)
+            Me.Rows.Add(row)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overloads Function AddLokasiRow(ByVal kd_lokasi As String, ByVal nm_lokasi As String, ByVal almt_lokasi As String, ByVal tlp_lokasi As String, ByVal parentKaryawanRowByFK_Lokasi_Karyawan As KaryawanRow, ByVal nm_karyawan As String) As LokasiRow
+            Dim rowLokasiRow As LokasiRow = CType(Me.NewRow, LokasiRow)
+            Dim columnValuesArray() As Object = New Object() {kd_lokasi, nm_lokasi, almt_lokasi, tlp_lokasi, Nothing, nm_karyawan}
+            If (Not (parentKaryawanRowByFK_Lokasi_Karyawan) Is Nothing) Then
+                columnValuesArray(4) = parentKaryawanRowByFK_Lokasi_Karyawan(0)
+            End If
+            rowLokasiRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowLokasiRow)
+            Return rowLokasiRow
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function FindBykd_lokasi(ByVal kd_lokasi As String) As LokasiRow
+            Return CType(Me.Rows.Find(New Object() {kd_lokasi}), LokasiRow)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As LokasiDataTable = CType(MyBase.Clone, LokasiDataTable)
+            cln.InitVars()
+            Return cln
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New LokasiDataTable()
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub InitVars()
+            Me.columnkd_lokasi = MyBase.Columns("kd_lokasi")
+            Me.columnnm_lokasi = MyBase.Columns("nm_lokasi")
+            Me.columnalmt_lokasi = MyBase.Columns("almt_lokasi")
+            Me.columntlp_lokasi = MyBase.Columns("tlp_lokasi")
+            Me.columnkd_karyawan = MyBase.Columns("kd_karyawan")
+            Me.columnnm_karyawan = MyBase.Columns("nm_karyawan")
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitClass()
+            Me.columnkd_lokasi = New Global.System.Data.DataColumn("kd_lokasi", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnkd_lokasi)
+            Me.columnnm_lokasi = New Global.System.Data.DataColumn("nm_lokasi", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnm_lokasi)
+            Me.columnalmt_lokasi = New Global.System.Data.DataColumn("almt_lokasi", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnalmt_lokasi)
+            Me.columntlp_lokasi = New Global.System.Data.DataColumn("tlp_lokasi", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntlp_lokasi)
+            Me.columnkd_karyawan = New Global.System.Data.DataColumn("kd_karyawan", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnkd_karyawan)
+            Me.columnnm_karyawan = New Global.System.Data.DataColumn("nm_karyawan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnm_karyawan)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnkd_lokasi}, True))
+            Me.columnkd_lokasi.AllowDBNull = False
+            Me.columnkd_lokasi.Unique = True
+            Me.columnkd_lokasi.MaxLength = 10
+            Me.columnnm_lokasi.AllowDBNull = False
+            Me.columnnm_lokasi.MaxLength = 50
+            Me.columnalmt_lokasi.AllowDBNull = False
+            Me.columnalmt_lokasi.MaxLength = 2147483647
+            Me.columntlp_lokasi.AllowDBNull = False
+            Me.columntlp_lokasi.MaxLength = 14
+            Me.columnkd_karyawan.AllowDBNull = False
+            Me.columnnm_karyawan.AllowDBNull = False
+            Me.columnnm_karyawan.MaxLength = 30
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function NewLokasiRow() As LokasiRow
+            Return CType(Me.NewRow, LokasiRow)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New LokasiRow(builder)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(LokasiRow)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.LokasiRowChangedEvent) Is Nothing) Then
+                RaiseEvent LokasiRowChanged(Me, New LokasiRowChangeEvent(CType(e.Row, LokasiRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.LokasiRowChangingEvent) Is Nothing) Then
+                RaiseEvent LokasiRowChanging(Me, New LokasiRowChangeEvent(CType(e.Row, LokasiRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.LokasiRowDeletedEvent) Is Nothing) Then
+                RaiseEvent LokasiRowDeleted(Me, New LokasiRowChangeEvent(CType(e.Row, LokasiRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.LokasiRowDeletingEvent) Is Nothing) Then
+                RaiseEvent LokasiRowDeleting(Me, New LokasiRowChangeEvent(CType(e.Row, LokasiRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub RemoveLokasiRow(ByVal row As LokasiRow)
+            Me.Rows.Remove(row)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As SIMARCData_Set = New SIMARCData_Set()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "LokasiDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current, Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+
+                            Do While ((s1.Position <> s1.Length) _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+
+
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close()
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close()
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class Type_AsetRow
@@ -2468,6 +2847,16 @@ Partial Public Class SIMARCData_Set
                 Return New AsetRow(-1) {}
             Else
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Aset_Karyawan")), AsetRow())
+            End If
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function GetLokasiRows() As LokasiRow()
+            If (Me.Table.ChildRelations("FK_Lokasi_Karyawan") Is Nothing) Then
+                Return New LokasiRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Lokasi_Karyawan")), LokasiRow())
             End If
         End Function
     End Class
@@ -2913,6 +3302,99 @@ Partial Public Class SIMARCData_Set
     End Class
 
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class LokasiRow
+        Inherits Global.System.Data.DataRow
+
+        Private tableLokasi As LokasiDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableLokasi = CType(Me.Table, LokasiDataTable)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property kd_lokasi() As String
+            Get
+                Return CType(Me(Me.tableLokasi.kd_lokasiColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableLokasi.kd_lokasiColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property nm_lokasi() As String
+            Get
+                Return CType(Me(Me.tableLokasi.nm_lokasiColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableLokasi.nm_lokasiColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property almt_lokasi() As String
+            Get
+                Return CType(Me(Me.tableLokasi.almt_lokasiColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableLokasi.almt_lokasiColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property tlp_lokasi() As String
+            Get
+                Return CType(Me(Me.tableLokasi.tlp_lokasiColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableLokasi.tlp_lokasiColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property kd_karyawan() As Integer
+            Get
+                Return CType(Me(Me.tableLokasi.kd_karyawanColumn), Integer)
+            End Get
+            Set(value As Integer)
+                Me(Me.tableLokasi.kd_karyawanColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property nm_karyawan() As String
+            Get
+                Return CType(Me(Me.tableLokasi.nm_karyawanColumn), String)
+            End Get
+            Set(value As String)
+                Me(Me.tableLokasi.nm_karyawanColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property KaryawanRow() As KaryawanRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Lokasi_Karyawan")), KaryawanRow)
+            End Get
+            Set(value As KaryawanRow)
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Lokasi_Karyawan"))
+            End Set
+        End Property
+    End Class
+
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -3078,6 +3560,42 @@ Partial Public Class SIMARCData_Set
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public ReadOnly Property Row() As AsetRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Public Class LokasiRowChangeEvent
+        Inherits Global.System.EventArgs
+
+        Private eventRow As LokasiRow
+
+        Private eventAction As Global.System.Data.DataRowAction
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New(ByVal row As LokasiRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New()
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property Row() As LokasiRow
             Get
                 Return Me.eventRow
             End Get
@@ -4376,6 +4894,187 @@ Namespace SIMARCData_SetTableAdapters
         Public Overridable Overloads Function GetData() As SIMARCData_Set.AsetDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As SIMARCData_Set.AsetDataTable = New SIMARCData_Set.AsetDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+    End Class
+
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    Partial Public Class LokasiTableAdapter
+        Inherits Global.System.ComponentModel.Component
+
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+
+        Private _clearBeforeFill As Boolean
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New()
+            MyBase.New()
+            Me.ClearBeforeFill = True
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter()
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection()
+                End If
+                Return Me._connection
+            End Get
+            Set(value As Global.System.Data.SqlClient.SqlConnection)
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing) _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing) _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing) _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection()
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set(value As Boolean)
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "Lokasi"
+            tableMapping.ColumnMappings.Add("kd_lokasi", "kd_lokasi")
+            tableMapping.ColumnMappings.Add("nm_lokasi", "nm_lokasi")
+            tableMapping.ColumnMappings.Add("almt_lokasi", "almt_lokasi")
+            tableMapping.ColumnMappings.Add("tlp_lokasi", "tlp_lokasi")
+            tableMapping.ColumnMappings.Add("kd_karyawan", "kd_karyawan")
+            tableMapping.ColumnMappings.Add("nm_karyawan", "nm_karyawan")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.SIMARC.My.MySettings.Default.SIMARFConnectionString
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT        Lokasi.kd_lokasi, Lokasi.nm_lokasi, Lokasi.almt_lokasi, Lokasi.tlp_" & _
+                "lokasi, Lokasi.kd_karyawan, Karyawan.nm_karyawan" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Lokasi INNER J" & _
+                "OIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Karyawan ON Lokasi.kd_karyawan = Karyawan.kd_karya" & _
+                "wan"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As SIMARCData_Set.LokasiDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As SIMARCData_Set.LokasiDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As SIMARCData_Set.LokasiDataTable = New SIMARCData_Set.LokasiDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function

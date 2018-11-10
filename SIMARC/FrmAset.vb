@@ -1,10 +1,7 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
+Imports SIMARC.Modul
 Public Class FrmAset
-    Dim kode As String
-    Dim type() As String
-    Dim merk() As String
-    Dim model() As String
     Private Sub FrmAset_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.Type_AsetTableAdapter.FillBy_ComboBox(Me.SIMARCData_Set.Type_Aset)
         Me.Merk_AsetTableAdapter.FillBy_ComboBox(Me.SIMARCData_Set.Merk_Aset, 0)
@@ -163,5 +160,9 @@ Public Class FrmAset
         Else
             Model_AsetTableAdapter.FillBy_ComboBox(Me.SIMARCData_Set.Model_Aset, CmbMerk.SelectedValue)
         End If
+    End Sub
+
+    Private Sub TxtBarcode_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtBarcode.KeyPress
+        HanyaAngka(e)
     End Sub
 End Class
