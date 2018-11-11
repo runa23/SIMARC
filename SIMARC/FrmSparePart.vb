@@ -4,40 +4,19 @@ Public Class FrmSparePart
     Dim kode, repair As String
 
     Private Sub FrmSparePart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TampilData()
-        SetTombol1()
+
+        SparepartTableAdapter.Fill(Me.SIMARCData_Set.Sparepart)
+        SetTombol(True)
     End Sub
-    Sub TampilData()
-            OpenConnection()
-            sql = "select * from SparePart"
-            da = New SqlDataAdapter(sql, con)
-            ds = New DataSet
-            da.Fill(ds, 0)
-        DgSparepart.DataSource = ds.Tables(0)
-        SetHeader()
-        CloseConnection()
+    Sub SetTombol(ByVal st As Boolean)
+        BtnSimpan.Enabled = st
+        BtnEdit.Enabled = Not st
+        BtnHapus.Enabled = Not st
+        BtnBatal.Enabled = Not st
+        BtnKeluar.Enabled = st
     End Sub
-    Sub SetHeader()
-        With DgSparepart
-            .Columns(0).HeaderText = "No"
-            .Columns(1).HeaderText = "Nama"
-            .Columns(2).HeaderText = "Harga"
-            .Columns(3).HeaderText = "stock"
-        End With
-    End Sub
-    Sub SetTombol1()
-        BtnSimpan.Enabled = True
-        BtnEdit.Enabled = False
-        BtnHapus.Enabled = False
-        BtnBatal.Enabled = False
-        BtnKeluar.Enabled = True
-    End Sub
-    Sub SetTombol2()
-        BtnSimpan.Enabled = False
-        BtnEdit.Enabled = True
-        BtnHapus.Enabled = True
-        BtnBatal.Enabled = True
-        BtnKeluar.Enabled = False
+    Sub ReloadData()
+        SparepartTableAdapter.Fill(SIMARCData_Set.Sparepart)
     End Sub
     Sub Clear()
         TxtNama.Clear()
@@ -68,12 +47,12 @@ Public Class FrmSparePart
                 'cmd = New SqlCommand(sql, con)
                 'cmd.ExecuteNonQuery()
 
-                MessageBox.Show("Data Berhasil di Simpan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Data Berhasil di Simpan", "Informasi", MessageBoxButtons.OK)
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
             Clear()
-            TampilData()
+            ReloadData()
             CloseConnection()
         End If
     End Sub
@@ -89,13 +68,13 @@ Public Class FrmSparePart
                       ",NULL"
                 cmd = New SqlCommand(sql, con)
                 cmd.ExecuteNonQuery()
-                MessageBox.Show("Data Berhasil di Edit", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Data Berhasil di Edit", "Informasi", MessageBoxButtons.OK)
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
             Clear()
-            SetTombol1()
-            TampilData()
+            SetTombol(True)
+            ReloadData()
             CloseConnection()
         End If
     End Sub
@@ -110,21 +89,9 @@ Public Class FrmSparePart
             MessageBox.Show("Data sedang digunakan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
         Clear()
-        SetTombol1()
-        TampilData()
+        SetTombol(True)
+        ReloadData()
         CloseConnection()
-    End Sub
-
-    Private Sub DgSparepart_DoubleClick(sender As Object, e As EventArgs) Handles DgSparepart.DoubleClick
-        With DgSparepart
-            kode = .Item(0, .CurrentRow.Index).Value
-            TxtNama.Text = .Item(1, .CurrentRow.Index).Value
-            TxtHarga.Text = Val(.Item(2, .CurrentRow.Index).Value)
-            TxtStock.Text = 0
-            TxtNama.Enabled = False
-
-        End With
-        SetTombol2()
     End Sub
 
     Private Sub BtnSimpan_Click(sender As Object, e As EventArgs) Handles BtnSimpan.Click
@@ -141,11 +108,22 @@ Public Class FrmSparePart
 
     Private Sub BtnBatal_Click(sender As Object, e As EventArgs) Handles BtnBatal.Click
         Clear()
-        SetTombol1()
-        TampilData()
+        SetTombol(True)
+        ReloadData()
     End Sub
 
     Private Sub BtnKeluar_Click(sender As Object, e As EventArgs) Handles BtnKeluar.Click
         Dispose()
+    End Sub
+
+    Private Sub DgSparepart_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgSparepart.CellContentClick
+        With DgSparepart.Rows(e.RowIndex)
+            kode = .Cells(0).Value
+            TxtNama.Text = .Cells(1).Value
+            TxtHarga.Text = Val(.Cells(2).Value)
+            TxtStock.Text = 0
+            TxtNama.Enabled = False
+        End With
+        SetTombol(False)
     End Sub
 End Class

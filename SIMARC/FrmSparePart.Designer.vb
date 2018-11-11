@@ -22,13 +22,13 @@ Partial Class FrmSparePart
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSparePart))
         Me.BtnKeluar = New System.Windows.Forms.Button()
         Me.BtnBatal = New System.Windows.Forms.Button()
         Me.BtnHapus = New System.Windows.Forms.Button()
         Me.BtnEdit = New System.Windows.Forms.Button()
         Me.BtnSimpan = New System.Windows.Forms.Button()
-        Me.DgSparepart = New System.Windows.Forms.DataGridView()
         Me.TxtHarga = New System.Windows.Forms.TextBox()
         Me.TxtStock = New System.Windows.Forms.TextBox()
         Me.TxtNama = New System.Windows.Forms.TextBox()
@@ -38,6 +38,17 @@ Partial Class FrmSparePart
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.DtpPart = New System.Windows.Forms.DateTimePicker()
+        Me.SIMARCData_Set = New SIMARC.SIMARCData_Set()
+        Me.SparepartBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SparepartTableAdapter = New SIMARC.SIMARCData_SetTableAdapters.SparepartTableAdapter()
+        Me.TableAdapterManager = New SIMARC.SIMARCData_SetTableAdapters.TableAdapterManager()
+        Me.DgSparepart = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.SIMARCData_Set, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SparepartBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgSparepart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -45,7 +56,7 @@ Partial Class FrmSparePart
         '
         Me.BtnKeluar.BackgroundImage = Global.SIMARC.My.Resources.Resources.door_out
         Me.BtnKeluar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.BtnKeluar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnKeluar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnKeluar.Location = New System.Drawing.Point(360, 132)
         Me.BtnKeluar.Name = "BtnKeluar"
         Me.BtnKeluar.Size = New System.Drawing.Size(71, 49)
@@ -58,7 +69,7 @@ Partial Class FrmSparePart
         '
         Me.BtnBatal.BackgroundImage = Global.SIMARC.My.Resources.Resources.Cancel_16x16
         Me.BtnBatal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.BtnBatal.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnBatal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnBatal.Location = New System.Drawing.Point(283, 132)
         Me.BtnBatal.Name = "BtnBatal"
         Me.BtnBatal.Size = New System.Drawing.Size(71, 49)
@@ -71,7 +82,7 @@ Partial Class FrmSparePart
         '
         Me.BtnHapus.BackgroundImage = Global.SIMARC.My.Resources.Resources.Delete_16x16
         Me.BtnHapus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.BtnHapus.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnHapus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnHapus.Location = New System.Drawing.Point(206, 132)
         Me.BtnHapus.Name = "BtnHapus"
         Me.BtnHapus.Size = New System.Drawing.Size(71, 49)
@@ -84,7 +95,7 @@ Partial Class FrmSparePart
         '
         Me.BtnEdit.BackgroundImage = Global.SIMARC.My.Resources.Resources.Add_16x16
         Me.BtnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.BtnEdit.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEdit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEdit.Location = New System.Drawing.Point(129, 132)
         Me.BtnEdit.Name = "BtnEdit"
         Me.BtnEdit.Size = New System.Drawing.Size(71, 49)
@@ -97,7 +108,7 @@ Partial Class FrmSparePart
         '
         Me.BtnSimpan.BackgroundImage = Global.SIMARC.My.Resources.Resources.Save_16x16
         Me.BtnSimpan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.BtnSimpan.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSimpan.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSimpan.Location = New System.Drawing.Point(52, 132)
         Me.BtnSimpan.Name = "BtnSimpan"
         Me.BtnSimpan.Size = New System.Drawing.Size(71, 49)
@@ -106,21 +117,9 @@ Partial Class FrmSparePart
         Me.BtnSimpan.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.BtnSimpan.UseVisualStyleBackColor = True
         '
-        'DgSparepart
-        '
-        Me.DgSparepart.AllowUserToAddRows = False
-        Me.DgSparepart.AllowUserToDeleteRows = False
-        Me.DgSparepart.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
-        Me.DgSparepart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgSparepart.Location = New System.Drawing.Point(12, 187)
-        Me.DgSparepart.Name = "DgSparepart"
-        Me.DgSparepart.ReadOnly = True
-        Me.DgSparepart.Size = New System.Drawing.Size(451, 223)
-        Me.DgSparepart.TabIndex = 47
-        '
         'TxtHarga
         '
-        Me.TxtHarga.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtHarga.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtHarga.Location = New System.Drawing.Point(196, 39)
         Me.TxtHarga.Multiline = True
         Me.TxtHarga.Name = "TxtHarga"
@@ -130,7 +129,7 @@ Partial Class FrmSparePart
         '
         'TxtStock
         '
-        Me.TxtStock.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtStock.Location = New System.Drawing.Point(140, 68)
         Me.TxtStock.Multiline = True
         Me.TxtStock.Name = "TxtStock"
@@ -140,7 +139,7 @@ Partial Class FrmSparePart
         '
         'TxtNama
         '
-        Me.TxtNama.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtNama.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtNama.Location = New System.Drawing.Point(140, 9)
         Me.TxtNama.Multiline = True
         Me.TxtNama.Name = "TxtNama"
@@ -149,7 +148,7 @@ Partial Class FrmSparePart
         '
         'Label1
         '
-        Me.Label1.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(12, 39)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(144, 25)
@@ -159,7 +158,7 @@ Partial Class FrmSparePart
         '
         'Label4
         '
-        Me.Label4.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(154, 39)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(39, 25)
@@ -169,7 +168,7 @@ Partial Class FrmSparePart
         '
         'Label5
         '
-        Me.Label5.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(12, 68)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(111, 25)
@@ -179,7 +178,7 @@ Partial Class FrmSparePart
         '
         'Label2
         '
-        Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(12, 9)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(130, 25)
@@ -189,7 +188,7 @@ Partial Class FrmSparePart
         '
         'Label3
         '
-        Me.Label3.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(12, 99)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(122, 25)
@@ -200,25 +199,91 @@ Partial Class FrmSparePart
         'DtpPart
         '
         Me.DtpPart.CustomFormat = "dd MMMM yyyy"
-        Me.DtpPart.Font = New System.Drawing.Font("Comic Sans MS", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DtpPart.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DtpPart.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DtpPart.Location = New System.Drawing.Point(140, 97)
         Me.DtpPart.Name = "DtpPart"
-        Me.DtpPart.Size = New System.Drawing.Size(195, 28)
+        Me.DtpPart.Size = New System.Drawing.Size(172, 24)
         Me.DtpPart.TabIndex = 101
+        '
+        'SIMARCData_Set
+        '
+        Me.SIMARCData_Set.DataSetName = "SIMARCData_Set"
+        Me.SIMARCData_Set.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'SparepartBindingSource
+        '
+        Me.SparepartBindingSource.DataMember = "Sparepart"
+        Me.SparepartBindingSource.DataSource = Me.SIMARCData_Set
+        '
+        'SparepartTableAdapter
+        '
+        Me.SparepartTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.KaryawanTableAdapter = Nothing
+        Me.TableAdapterManager.SparepartTableAdapter = Me.SparepartTableAdapter
+        Me.TableAdapterManager.UpdateOrder = SIMARC.SIMARCData_SetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'DgSparepart
+        '
+        Me.DgSparepart.AllowUserToAddRows = False
+        Me.DgSparepart.AllowUserToDeleteRows = False
+        Me.DgSparepart.AllowUserToOrderColumns = True
+        Me.DgSparepart.AutoGenerateColumns = False
+        Me.DgSparepart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgSparepart.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.DgSparepart.DataSource = Me.SparepartBindingSource
+        Me.DgSparepart.Location = New System.Drawing.Point(12, 187)
+        Me.DgSparepart.Name = "DgSparepart"
+        Me.DgSparepart.ReadOnly = True
+        Me.DgSparepart.Size = New System.Drawing.Size(451, 369)
+        Me.DgSparepart.TabIndex = 102
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "kd_part"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Kode"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 50
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "nm_part"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Nama"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 200
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "hrg_part"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Harga"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "stock"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Stock"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
         '
         'FrmSparePart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(475, 426)
+        Me.ClientSize = New System.Drawing.Size(475, 568)
+        Me.Controls.Add(Me.DgSparepart)
         Me.Controls.Add(Me.DtpPart)
         Me.Controls.Add(Me.BtnKeluar)
         Me.Controls.Add(Me.BtnBatal)
         Me.Controls.Add(Me.BtnHapus)
         Me.Controls.Add(Me.BtnEdit)
         Me.Controls.Add(Me.BtnSimpan)
-        Me.Controls.Add(Me.DgSparepart)
         Me.Controls.Add(Me.TxtHarga)
         Me.Controls.Add(Me.TxtStock)
         Me.Controls.Add(Me.TxtNama)
@@ -231,6 +296,8 @@ Partial Class FrmSparePart
         Me.Name = "FrmSparePart"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Spare part"
+        CType(Me.SIMARCData_Set, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SparepartBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgSparepart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -241,7 +308,6 @@ Partial Class FrmSparePart
     Friend WithEvents BtnHapus As System.Windows.Forms.Button
     Friend WithEvents BtnEdit As System.Windows.Forms.Button
     Friend WithEvents BtnSimpan As System.Windows.Forms.Button
-    Friend WithEvents DgSparepart As System.Windows.Forms.DataGridView
     Friend WithEvents TxtHarga As System.Windows.Forms.TextBox
     Friend WithEvents TxtStock As System.Windows.Forms.TextBox
     Friend WithEvents TxtNama As System.Windows.Forms.TextBox
@@ -251,4 +317,13 @@ Partial Class FrmSparePart
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents DtpPart As System.Windows.Forms.DateTimePicker
+    Friend WithEvents SIMARCData_Set As SIMARC.SIMARCData_Set
+    Friend WithEvents SparepartBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents SparepartTableAdapter As SIMARC.SIMARCData_SetTableAdapters.SparepartTableAdapter
+    Friend WithEvents TableAdapterManager As SIMARC.SIMARCData_SetTableAdapters.TableAdapterManager
+    Friend WithEvents DgSparepart As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
