@@ -83,62 +83,68 @@ Partial Class FrmAset
         '
         'Label7
         '
+        Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(192, 144)
+        Me.Label7.Location = New System.Drawing.Point(173, 144)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(57, 25)
+        Me.Label7.Size = New System.Drawing.Size(36, 18)
         Me.Label7.TabIndex = 98
         Me.Label7.Text = "Liter"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblUkuran
         '
+        Me.LblUkuran.AutoSize = True
         Me.LblUkuran.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblUkuran.Location = New System.Drawing.Point(113, 144)
         Me.LblUkuran.Name = "LblUkuran"
-        Me.LblUkuran.Size = New System.Drawing.Size(57, 25)
+        Me.LblUkuran.Size = New System.Drawing.Size(16, 18)
         Me.LblUkuran.TabIndex = 99
         Me.LblUkuran.Text = "0"
         Me.LblUkuran.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label5
         '
+        Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(22, 143)
+        Me.Label5.Location = New System.Drawing.Point(43, 144)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(75, 25)
+        Me.Label5.Size = New System.Drawing.Size(64, 18)
         Me.Label5.TabIndex = 97
-        Me.Label5.Text = "Ukuran"
+        Me.Label5.Text = "Ukuran :"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label4
         '
+        Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(22, 109)
+        Me.Label4.Location = New System.Drawing.Point(50, 113)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(75, 25)
+        Me.Label4.Size = New System.Drawing.Size(57, 18)
         Me.Label4.TabIndex = 96
-        Me.Label4.Text = "Model"
+        Me.Label4.Text = "Model :"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label1
         '
+        Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(22, 75)
+        Me.Label1.Location = New System.Drawing.Point(57, 79)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(75, 25)
+        Me.Label1.Size = New System.Drawing.Size(50, 18)
         Me.Label1.TabIndex = 94
-        Me.Label1.Text = "Merk"
+        Me.Label1.Text = "Merk :"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label3
         '
+        Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(22, 40)
+        Me.Label3.Location = New System.Drawing.Point(63, 44)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 25)
+        Me.Label3.Size = New System.Drawing.Size(44, 18)
         Me.Label3.TabIndex = 92
-        Me.Label3.Text = "Tipe"
+        Me.Label3.Text = "Tipe :"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TxtBarcode
@@ -152,12 +158,13 @@ Partial Class FrmAset
         '
         'Label2
         '
+        Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(22, 8)
+        Me.Label2.Location = New System.Drawing.Point(35, 12)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(75, 25)
+        Me.Label2.Size = New System.Drawing.Size(72, 18)
         Me.Label2.TabIndex = 90
-        Me.Label2.Text = "Barcode"
+        Me.Label2.Text = "Barcode :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'BtnBatal
@@ -231,6 +238,9 @@ Partial Class FrmAset
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.Connection = Nothing
         Me.TableAdapterManager.KaryawanTableAdapter = Nothing
+        Me.TableAdapterManager.KasusTableAdapter = Nothing
+        Me.TableAdapterManager.MaintenanceTableAdapter = Nothing
+        Me.TableAdapterManager.SparepartTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = SIMARC.SIMARCData_SetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'DgAset
