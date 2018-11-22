@@ -115,6 +115,7 @@ Public Class FrmPopUpMT
                 Next
             End With
             FrmMT.BtnReset.Visible = True
+            FrmMT.BtnHapus.Visible = True
             FrmMT.BtnCeklist.Enabled = False
             FrmMT.BtnProses.Enabled = False
             Me.Dispose()

@@ -307,12 +307,6 @@
     <Compile Include="FrmLokasi.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMaintenance.Designer.vb">
-      <DependentUpon>FrmMaintenance.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMaintenance.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FrmMerk.designer.vb">
       <DependentUpon>FrmMerk.vb</DependentUpon>
     </Compile>
@@ -496,9 +490,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLokasi.resx">
       <DependentUpon>FrmLokasi.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmMaintenance.resx">
-      <DependentUpon>FrmMaintenance.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMerk.resx">
       <DependentUpon>FrmMerk.vb</DependentUpon>

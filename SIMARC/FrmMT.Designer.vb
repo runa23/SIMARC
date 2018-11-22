@@ -54,6 +54,7 @@ Partial Class FrmMT
         Me.BtnCeklist = New System.Windows.Forms.Button()
         Me.BtnEdit = New System.Windows.Forms.Button()
         Me.BtnReset = New System.Windows.Forms.Button()
+        Me.BtnHapus = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DgChecklist, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -402,11 +403,25 @@ Partial Class FrmMT
         Me.BtnReset.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.BtnReset.UseVisualStyleBackColor = True
         '
+        'BtnHapus
+        '
+        Me.BtnHapus.BackgroundImage = Global.SIMARC.My.Resources.Resources.Delete_16x16
+        Me.BtnHapus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.BtnHapus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnHapus.Location = New System.Drawing.Point(420, 490)
+        Me.BtnHapus.Name = "BtnHapus"
+        Me.BtnHapus.Size = New System.Drawing.Size(71, 49)
+        Me.BtnHapus.TabIndex = 103
+        Me.BtnHapus.Text = "Hapus"
+        Me.BtnHapus.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.BtnHapus.UseVisualStyleBackColor = True
+        '
         'FrmMT
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(893, 549)
+        Me.Controls.Add(Me.BtnHapus)
         Me.Controls.Add(Me.BtnReset)
         Me.Controls.Add(Me.BtnEdit)
         Me.Controls.Add(Me.BtnCeklist)
@@ -462,4 +477,5 @@ Partial Class FrmMT
     Friend WithEvents TxtAlamat As System.Windows.Forms.TextBox
     Friend WithEvents BtnEdit As System.Windows.Forms.Button
     Friend WithEvents BtnReset As System.Windows.Forms.Button
+    Friend WithEvents BtnHapus As System.Windows.Forms.Button
 End Class

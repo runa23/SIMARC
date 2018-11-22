@@ -16,6 +16,7 @@ Public Class FrmMT
         DtpSelesai.Value = Now
         Aktif()
         BtnReset.Visible = False
+        BtnHapus.Visible = False
     End Sub
     Sub Tampil()
         Try
@@ -430,6 +431,38 @@ Public Class FrmMT
         End Try
         CloseConnection()
     End Sub
+    Sub Delete()
+        Try
+            Dim pilih
+
+            pilih = MessageBox.Show("Apakah anda ingin menghapus data maintenance cabinet barcode : " & TxtBarcode.Text & " ?", "Informasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If pilih = vbYes Then
+                OpenConnection()
+                sql = "SpDeleteMA '" & KDMT & "'"
+                cmd = New SqlCommand(sql, con)
+                cmd.ExecuteNonQuery()
+
+                sql = "SpDeleteMT '" & KDMT & "'"
+                cmd = New SqlCommand(sql, con)
+                cmd.ExecuteNonQuery()
+
+                CloseConnection()
+                MessageBox.Show("Data berhasil di Hapus", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+
+            Clear()
+            Tampil()
+            BtnCeklist.Enabled = True
+            BtnProses.Enabled = True
+            BtnReset.Visible = False
+            BtnHapus.Visible = False
+            TxtBarcode.Focus()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
     Private Sub DgChecklist_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgChecklist.CellClick
         ValidateCK()
     End Sub
@@ -577,5 +610,10 @@ Public Class FrmMT
         BtnProses.Enabled = True
         BtnCeklist.Enabled = True
         BtnReset.Visible = False
+        BtnHapus.Visible = False
+    End Sub
+
+    Private Sub BtnHapus_Click(sender As Object, e As EventArgs) Handles BtnHapus.Click
+        Delete()
     End Sub
 End Class
