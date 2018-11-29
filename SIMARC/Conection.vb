@@ -10,8 +10,8 @@ Module Conection
     Public ds As DataSet
     Public dt As DataTable
     Public Sub OpenConnection()
-        'con = New SqlClient.SqlConnection("server=.;database=SIMARF;MultipleActiveResultSets=true;user ID=user;password=user12345")
-        con = New SqlClient.SqlConnection("Server=192.168.1.201,1433;Database=SIMARF;MultipleActiveResultSets=True;User ID=user;Password=user12345;")
+        con = New SqlClient.SqlConnection("server=.;database=SIMARF;MultipleActiveResultSets=true;user ID=user;password=user12345")
+        'con = New SqlClient.SqlConnection("Server=192.168.1.201,1433;Database=SIMARF;MultipleActiveResultSets=True;User ID=user;Password=user12345;")
         'con = New SqlClient.SqlConnection("Network Library=DBMSSOCN; Data Source=192.168.1.2,1433;" & _
         '                   "MultipleActiveResultSets=True;Initial Catalog=SIMARF; User ID=user; Password=user12345")
         Try

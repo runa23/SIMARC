@@ -98,10 +98,12 @@ Public Class Menu_Utama
     End Sub
 
     Private Sub LaporanRepairToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanRepairToolStripMenuItem.Click
-        FrmLapRepair.MdiParent = Me
-        FrmLapRepair.Dock = DockStyle.Fill
-        FrmLapRepair.WindowState = FormWindowState.Maximized
-        FrmLapRepair.Show()
+        FrmPilihTanggal.MdiParent = Me
+        FrmPilihTanggal.Show()
+        'FrmLapRepair.MdiParent = Me
+        'FrmLapRepair.Dock = DockStyle.Fill
+        'FrmLapRepair.WindowState = FormWindowState.Maximized
+        'FrmLapRepair.Show()
     End Sub
 
     Private Sub LaporanRepairLengkapToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanRepairLengkapToolStripMenuItem.Click
@@ -158,5 +160,9 @@ Public Class Menu_Utama
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
         FrmImOutlet.MdiParent = Me
         FrmImOutlet.Show()
+    End Sub
+
+    Private Sub Menu_Utama_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        Application.Exit()
     End Sub
 End Class
