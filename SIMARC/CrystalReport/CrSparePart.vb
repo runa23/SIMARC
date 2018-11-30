@@ -118,7 +118,7 @@ Public Class CrSparePart
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Tanggal() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_Tanggal_Awal() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(1)
         End Get
@@ -129,6 +129,14 @@ Public Class CrSparePart
     Public ReadOnly Property Parameter_Cetak() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(2)
+        End Get
+    End Property
+    
+    <Browsable(false),  _
+     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
+    Public ReadOnly Property Parameter_Tanggal_Akhir() As CrystalDecisions.[Shared].IParameterField
+        Get
+            Return Me.DataDefinition.ParameterFields(3)
         End Get
     End Property
 End Class

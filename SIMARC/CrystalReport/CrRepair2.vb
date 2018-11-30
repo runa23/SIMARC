@@ -94,7 +94,7 @@ Public Class CrRepair2
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Tanggal_Masuk() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_Tanggal_Awal() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(0)
         End Get
@@ -102,7 +102,7 @@ Public Class CrRepair2
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Tanggal_Keluar() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_Tanggal_Akhir() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(1)
         End Get

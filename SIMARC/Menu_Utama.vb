@@ -1,4 +1,6 @@
 ﻿Imports System.Windows.Forms
+Imports CrystalDecisions.CrystalReports.Engine
+Imports CrystalDecisions.Shared
 
 Public Class Menu_Utama
 
@@ -70,6 +72,22 @@ Public Class Menu_Utama
     End Sub
 
     Private Sub LaporanAsetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanAsetToolStripMenuItem.Click
+        Dim CryRpt As New ReportDocument
+        Dim CrConnectionInfo As New ConnectionInfo
+
+        With CrConnectionInfo
+            .ServerName = ServerName
+            .DatabaseName = DatabaseName
+            .UserID = userID
+            .Password = Password
+        End With
+
+        With CrConnectionInfo
+            FrmLapAset.CrAset1.DataSourceConnections.Clear()
+            FrmLapAset.CrAset1.DataSourceConnections.Item(0).SetConnection(.ServerName, .DatabaseName, .UserID, .Password)
+            FrmLapAset.CrAset1.SetDatabaseLogon(.UserID, .Password, .ServerName, .DatabaseName)
+        End With
+
         FrmLapAset.MdiParent = Me
         FrmLapAset.Dock = DockStyle.Fill
         FrmLapAset.WindowState = FormWindowState.Maximized
@@ -77,47 +95,39 @@ Public Class Menu_Utama
     End Sub
 
     Private Sub LaporanSparePartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanSparePartToolStripMenuItem.Click
-        FrmLapSparepart.MdiParent = Me
-        FrmLapSparepart.Dock = DockStyle.Fill
-        FrmLapSparepart.WindowState = FormWindowState.Maximized
-        FrmLapSparepart.Show()
+        FrmPilihTanggal.MdiParent = Me
+        FrmPilihTanggal.Active = "SparePart"
+        FrmPilihTanggal.Show()
     End Sub
 
     Private Sub LaporanMaintenanceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanMaintenanceToolStripMenuItem.Click
-        FrmLapMT.MdiParent = Me
-        FrmLapMT.Dock = DockStyle.Fill
-        FrmLapMT.WindowState = FormWindowState.Maximized
-        FrmLapMT.Show()
+        FrmPilihTanggal.MdiParent = Me
+        FrmPilihTanggal.Active = "Maintenance"
+        FrmPilihTanggal.Show()
     End Sub
 
     Private Sub LaporanChecklistToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles LaporanChecklistToolStripMenuItem1.Click
-        FrmLapChecklist.MdiParent = Me
-        FrmLapChecklist.Dock = DockStyle.Fill
-        FrmLapChecklist.WindowState = FormWindowState.Maximized
-        FrmLapChecklist.Show()
+        FrmPilihTanggal.MdiParent = Me
+        FrmPilihTanggal.Active = "Checklist"
+        FrmPilihTanggal.Show()
     End Sub
 
     Private Sub LaporanRepairToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanRepairToolStripMenuItem.Click
         FrmPilihTanggal.MdiParent = Me
+        FrmPilihTanggal.Active = "Repair"
         FrmPilihTanggal.Show()
-        'FrmLapRepair.MdiParent = Me
-        'FrmLapRepair.Dock = DockStyle.Fill
-        'FrmLapRepair.WindowState = FormWindowState.Maximized
-        'FrmLapRepair.Show()
     End Sub
 
     Private Sub LaporanRepairLengkapToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanRepairLengkapToolStripMenuItem.Click
-        FrmLapRepairLengkap.MdiParent = Me
-        FrmLapRepairLengkap.Dock = DockStyle.Fill
-        FrmLapRepairLengkap.WindowState = FormWindowState.Maximized
-        FrmLapRepairLengkap.Show()
+        FrmPilihTanggal.MdiParent = Me
+        FrmPilihTanggal.Active = "RepairLengkap"
+        FrmPilihTanggal.Show()
     End Sub
 
     Private Sub LaporanKeuanganToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanKeuanganToolStripMenuItem.Click
-        FrmLapKeuangan.MdiParent = Me
-        FrmLapKeuangan.Dock = DockStyle.Fill
-        FrmLapKeuangan.WindowState = FormWindowState.Maximized
-        FrmLapKeuangan.Show()
+        FrmPilihTanggal.MdiParent = Me
+        FrmPilihTanggal.Active = "Keuangan"
+        FrmPilihTanggal.Show()
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
@@ -131,10 +141,9 @@ Public Class Menu_Utama
     End Sub
 
     Private Sub LaporanKeuanganLengkapToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanKeuanganLengkapToolStripMenuItem.Click
-        FrmLapKeuanganLengkap.MdiParent = Me
-        FrmLapKeuanganLengkap.Dock = DockStyle.Fill
-        FrmLapKeuanganLengkap.WindowState = FormWindowState.Maximized
-        FrmLapKeuanganLengkap.Show()
+        FrmPilihTanggal.MdiParent = Me
+        FrmPilihTanggal.Active = "KeuanganLengkap"
+        FrmPilihTanggal.Show()
     End Sub
 
     Private Sub ImportTypeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportTypeToolStripMenuItem.Click
