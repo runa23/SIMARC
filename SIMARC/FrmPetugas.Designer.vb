@@ -285,7 +285,12 @@ Partial Class FrmPetugas
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Det_RepairTableAdapter = Nothing
         Me.TableAdapterManager.KaryawanTableAdapter = Me.KaryawanTableAdapter
+        Me.TableAdapterManager.KasusTableAdapter = Nothing
+        Me.TableAdapterManager.MaintenanceTableAdapter = Nothing
+        Me.TableAdapterManager.RepairTableAdapter = Nothing
+        Me.TableAdapterManager.SparepartTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = SIMARC.SIMARCData_SetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'DgPetugas

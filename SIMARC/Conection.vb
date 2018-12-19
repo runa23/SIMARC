@@ -17,7 +17,7 @@ Module Conection
     Public ConnString As String
     Public Sub OpenConnection()
 
-        ServerName = "."
+        ServerName = "DESKTOP-OHVRDA6"
         DatabaseName = "SIMARF"
         MARS = True
         userID = "user"
