@@ -17,11 +17,11 @@ Module Conection
     Public ConnString As String
     Public Sub OpenConnection()
 
-        ServerName = "DESKTOP-OHVRDA6"
-        DatabaseName = "SIMARF"
+        ServerName = "simarc.southeastasia.cloudapp.azure.com,1433"
+        DatabaseName = "SIMARC"
         MARS = True
-        userID = "user"
-        Password = "user12345"
+        userID = "usersimarc"
+        Password = "user!@#123"
 
         ConnString = "server = " & ServerName & ";"
         ConnString = ConnString & "database = " & DatabaseName & ";"
